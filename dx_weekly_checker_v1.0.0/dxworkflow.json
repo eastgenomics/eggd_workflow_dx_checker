@@ -1,0 +1,74 @@
+{
+  "name": "dx_weekly_checker_v1.0.0",
+  "title": "dx_weekly_checker_v1.0.0",
+  "stages": [
+    {
+      "id": "stage-Fy8qp6Q433Gk1p7jF3493gqb",
+      "executable": "app-sentieon-dnaseq/2.1.0",
+      "folder": "/dx_weekly_check/201026-1408",
+      "input": {
+        "genomebwaindex_targz": {
+          "$dnanexus_link": {
+            "project": "project-F3zxk7Q4F30Xp8fG69K1Vppj",
+            "id": "file-F404y604F30fbxQG68KF3GZb"
+          }
+        },
+        "genome_fastagz": {
+          "$dnanexus_link": "file-F403K904F30y2vpVFqxB9kz7"
+        },
+        "reads_fastqgzs": [
+          {
+            "$dnanexus_link": {
+              "project": "project-Fy9G62Q4gk5784zB9xPpVFJ1",
+              "id": "file-Fxb69184X7kv15p05jKx01P5"
+            }
+          },
+          {
+            "$dnanexus_link": {
+              "project": "project-Fy9G62Q4gk5784zB9xPpVFJ1",
+              "id": "file-Fxb691Q4X7kb53Gp2xXQYX41"
+            }
+          }
+        ],
+        "reads2_fastqgzs": [
+          {
+            "$dnanexus_link": {
+              "project": "project-Fy9G62Q4gk5784zB9xPpVFJ1",
+              "id": "file-Fxb69x04X7kkQgKq8ZqY4F3f"
+            }
+          },
+          {
+            "$dnanexus_link": {
+              "project": "project-Fy9G62Q4gk5784zB9xPpVFJ1",
+              "id": "file-Fxb697j4X7kzQvby05JQGgvj"
+            }
+          }
+        ]
+      },
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x32"
+        }
+      }
+    },
+    {
+      "id": "stage-Fy8qpJ8433GfYvxfF3Q1Pk09",
+      "executable": "applet-Fy8jKkj433GYbPGg1FK3z1x2",
+      "folder": "/dx_weekly_check/201026-1401",
+      "input": {
+        "query_vcf": {
+          "$dnanexus_link": {
+            "stage": "stage-Fy8qp6Q433Gk1p7jF3493gqb",
+            "outputField": "variants_vcf"
+          }
+        },
+        "truth_vcf": {
+          "$dnanexus_link": {
+            "project": "project-Fy9G62Q4gk5784zB9xPpVFJ1",
+            "id": "file-Fy9Fg58448685fV83K24Z8y6"
+          }
+        }
+      }
+    }
+  ]
+}
